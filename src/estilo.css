@@ -1,0 +1,50 @@
+/* Estilo.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
+  
+}
+
+.mi-contenedor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+ 
+ 
+}
+
+.controles {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 50px;
+  padding-top: 20px;
+}
+
+.mycanvas {
+  display: flex;
+  flex-direction: column;
+ 
+
+  width: 450px;
+  height: 450px;
+  padding-top: 10px;
+}
+
+

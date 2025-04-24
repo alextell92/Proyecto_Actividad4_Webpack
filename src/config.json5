@@ -1,0 +1,12 @@
+{
+  title: "Filtros aplicables",
+  filtros: [
+    { nombre: "Sepia", valor: 1 },
+    { nombre: "Blanco y negro", valor: 2 },
+    { nombre: "Vintage", valor: 3 },
+    { nombre: "Brillo", valor: 4 },
+    { nombre: "Desenfoque", valor: 5 },
+     { nombre: "Frio", valor: 6 },
+    { nombre: "8bits", valor: 7 },
+  ],
+}
