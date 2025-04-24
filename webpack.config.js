@@ -1,12 +1,11 @@
-const path = require('path');
-const yaml = require('yamljs');
-const json5 = require('json5');
+const path = require("path");
+const yaml = require("yamljs");
+const json5 = require("json5");
 
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
-
 module.exports = {
-  entry: './src/index.js', 
+  entry: "./src/index.js",
   plugins: [
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
@@ -14,8 +13,8 @@ module.exports = {
     }),
   ],
   output: {
-    filename: 'bundle.js', 
-    path: path.resolve(__dirname, 'dist'), 
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -23,30 +22,30 @@ module.exports = {
         test: /\.js$/, // Archivos JavaScript
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'], // Transpila ES6+ a ES5
+            presets: ["@babel/preset-env"], // Transpila ES6+ a ES5
           },
         },
       },
       {
         test: /\.css$/, // Archivos CSS
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.s[ac]ss$/i, // Archivos SCSS/SASS
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.ya?ml$/, // Archivos YAML
-        type: 'json',
+        type: "json",
         parser: {
           parse: yaml.parse,
         },
       },
       {
         test: /\.json5$/, // Archivos JSON5
-        type: 'json',
+        type: "json",
         parser: {
           parse: json5.parse,
         },
@@ -54,7 +53,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.json', '.yaml', '.yml', '.json5'], // Extensiones que se pueden omitir en las importaciones
+    extensions: [".js", ".json", ".yaml", ".yml", ".json5"], 
   },
-  mode: 'development', // Modo de compilación: 'development' o 'production'
+  mode: "development", 
 };
+
+
+
+Proyecto final del modulo 5, cree una aplicacion para agregar filtros a una imagen cargada por el usuario final, utilice activos, imagenes, css, scss, yaml,jason5, biblioteca externa.

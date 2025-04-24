@@ -5,13 +5,4 @@ conversionimg:
   nivelConversion: 5
   version: 1.0
   efectos:
-    - nombre: "Escala de grises"
-      descripcion: "Convierte la imagen a escala de grises"
-      tipo: "filtro"
-      parametros:
-        - nombre: "intensidad"
-          tipo: "entero"
-          valorPorDefecto: 50
-          rango: [0, 100]
     - nombre:
- 

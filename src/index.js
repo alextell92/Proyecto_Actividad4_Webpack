@@ -6,18 +6,18 @@ import config from "./config.yaml";
 
 import json5 from "./config.json5";
 
-console.log("Go")
-if('serviceWorker' in navigator){
-  window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js')
-      .then(registration=>{
-          console.log('SW Registrado',registration);
-  })
-      .catch(err=>
-          {console.log('SW no registrado',err)
+console.log("Go");
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then((registration) => {
+        console.log("SW Registrado", registration);
+      })
+      .catch((err) => {
+        console.log("SW no registrado", err);
+      });
   });
-  });
-
 }
 
 var filtro = "none";
@@ -26,7 +26,7 @@ const img = new Image();
 
 const contenedorDivPrincipal = document.createElement("div");
 const contenedorDiv = document.createElement("div");
-const canvasDiv=document.createElement("div");
+const canvasDiv = document.createElement("div");
 
 canvasDiv.classList.add("mycanvas");
 const h1 = document.createElement("h1");
@@ -39,7 +39,6 @@ contenedorDivPrincipal.appendChild(h1);
 contenedorDivPrincipal.appendChild(h4);
 contenedorDivPrincipal.classList.add("principal");
 contenedorDiv.classList.add("mi-contenedor");
-
 
 const slider = document.createElement("input");
 slider.type = "range";
@@ -67,7 +66,6 @@ const select = document.createElement("select");
 select.id = "selectFiltro";
 select.style.marginTop = "10px";
 
-
 contenedorDiv.appendChild(select);
 contenedorDiv.appendChild(slider);
 contenedorDiv.appendChild(etiqueta);
@@ -79,7 +77,6 @@ customButton.id = "customButton";
 customButton.textContent = "Cargar Imagen";
 customButton.style.marginTop = "5px";
 contenedorDivPrincipal.appendChild(customButton);
-
 
 const canvas = document.createElement("canvas");
 canvas.id = "myCanvas";
@@ -99,8 +96,8 @@ optionDefault.textContent = "Seleccionar filtro"; // texto para mostrar al usuar
 select.appendChild(optionDefault); // Agregar la opción por defecto al select
 
 listadoFiltros.forEach((item) => {
-  const option = document.createElement("option"); // :contentReference[oaicite:8]{index=8}
-  option.value = item.valor; // texto para enviar al servidor
+  const option = document.createElement("option");
+  option.value = item.valor;
   option.textContent = item.nombre;
   select.appendChild(option); // Agregar la opción al select
 });
@@ -114,9 +111,9 @@ select.addEventListener("change", (event) => {
       slider.value = 10; // Valor inicial
       console.log("Seleccionado " + event.target.value);
       etiqueta.textContent = `${filtro}: ${slider.value}%`;
-      ctx.filter = `sepia(${slider.value}%)`;;
+      ctx.filter = `sepia(${slider.value}%)`;
       ctx.drawImage(img, 0, 0);
-     
+
       break;
     case "2":
       filtro = "blancoynegro";
@@ -129,8 +126,8 @@ select.addEventListener("change", (event) => {
       ctx.drawImage(img, 0, 0);
       break;
     case "3":
-      filtro="vintage";
-    
+      filtro = "vintage";
+
       slider.style.display = "none";
       etiqueta.style.display = "none"; // Mostrar la etiqueta
       slider.value = 10; // Valor inicial
@@ -155,12 +152,12 @@ select.addEventListener("change", (event) => {
       etiqueta.style.display = "block"; // Mostrar la etiqueta
       slider.value = 10; // Valor inicial
       console.log("Seleccionado " + event.target.value);
-    
+
       etiqueta.textContent = `${filtro}: ${slider.value}px`;
       ctx.filter = `blur(${slider.value}px) grayscale(5%)`;
       ctx.drawImage(img, 0, 0);
       break;
-      case "6":
+    case "6":
       filtro = "frio";
       slider.style.display = "none";
       etiqueta.style.display = "none"; // Mostrar la etiqueta
@@ -169,7 +166,7 @@ select.addEventListener("change", (event) => {
       etiqueta.textContent = `${filtro}: ${slider.value}deg`;
       ctx.filter = `hue-rotate(180deg) sepia(75%) contrast(150%) saturate(300%) hue-rotate(180deg)`;
       ctx.drawImage(img, 0, 0);
-        break;
+      break;
     case "7":
       filtro = "8bits";
       slider.style.display = "block";
@@ -252,7 +249,7 @@ slider.addEventListener("input", () => {
     case "frio":
       ctx.filter = `hue-rotate(180deg) sepia(75%) contrast(150%) saturate(300%) hue-rotate(180deg)`;
       ctx.drawImage(img, 0, 0);
-      etiqueta.textContent = `${filtro}: ${slider.value}%`; 
+      etiqueta.textContent = `${filtro}: ${slider.value}%`;
       break;
     case "sepia":
       ctx.filter = `sepia(${slider.value}%)`;
@@ -266,7 +263,6 @@ slider.addEventListener("input", () => {
       break;
   }
 });
-
 
 /*
 Blanco y negro 
@@ -284,4 +280,4 @@ verde neon
 filter: hue-rotate(-30deg) sepia(75%) contrast(150%) saturate(300%) hue-rotate(30deg);
 
 
-*/ 
+*/

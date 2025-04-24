@@ -1,10 +1,10 @@
 $body-color: radial-gradient(circle at center, #008cff, #00a6ff);
-$tipoletra: 'Courier New', Courier, monospace;
+$tipoletra: "Courier New", Courier, monospace;
 $font-size: 16px;
 $font-color: #fff;
-   
-.principal{
-    background:$body-color;
-    font:$tipoletra;
-    color: $font-color;
+
+.principal {
+  background: $body-color;
+  font: $tipoletra;
+  color: $font-color;
 }
